@@ -1,0 +1,224 @@
+
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+##lendo arquivo
+library(readr)
+library(dplyr)
+base <- read_csv("df_full_premierleague.csv")
+base2 <- base
+base2 <- na.omit(base2)
+
+
+##Criando variável resposta
+library(dplyr)
+base2$M_G <- NA
+for(i in 1:length(base2$home_team)){
+ if(base2$goal_home_ft[i] > base2$goal_away_ft[i]){
+   base2$M_G[i] <- 1
+ }else if(base2$goal_home_ft[i] < base2$goal_away_ft[i]){
+   base2$M_G[i] <- 0
+   }else {base2$M_G[i] <- 2}
+}
+
+
+##Selecionando estatísticas do jogo
+base2 <- base2[,c(9:25,27:32,115)]
+
+```
+
+# Análise das estatística do time mandante
+
+## posse de bola
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+base2 |>  
+  ggplot(mapping = aes(y = home_possession , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Posse de bola")+
+  theme_classic()
+
+```
+Posse de bola do mandante vencedor aparenta ser um pouco maior que os demais resultados
+
+
+## Escanteios
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_corners , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Escanteios")+
+  theme_classic()
+
+```
+Quando o mandante perde os escanteios aparentam ocorrer em menor número
+
+## Chutões
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_clearances , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou")))) +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) + 
+  labs(x = "Resultado", 
+       y = "Chutões")+
+  theme_classic()
+```
+Aparenta haver uma pequena diferença, quando observamos as medianas, entre osresultados, onde os mandantes que perderam tendem a dar menos chutões do que os que venceram ou empataram
+
+
+## Faltas cometidas
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_fouls_conceded , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Faltas cometidas")+
+  theme_classic()
+
+```
+Times mandantes que ganharam parecem possui uma quantidade de faltas cometidas um pouco menos que os demais resultados
+
+
+## Impedimentos 
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_offsides , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Impedimentos")+
+  theme_classic()
+
+```
+Nenhuma diferença pode ser percebida na quantidade de impedimentos
+
+
+## Passes
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_passes , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Passes realizados")+
+  theme_classic()
+```
+Times mandantes que ganharam parecem possuir mais passes realizados durante a partida
+
+
+## Cartões amarelos
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_yellow_cards , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Cartões amarelos")+
+  theme_classic()
+
+
+```
+Comportamento semelhante entre os resultados, não parece interferir na vitória
+
+
+## Cartões vermelho
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+g1 <- base2 |>  
+  ggplot(mapping = aes(y = home_red_cards , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Cartões vermelho")+
+  theme_classic()
+g2 <- base2 |> 
+  ggplot2::ggplot(aes(x = as.factor(home_red_cards),
+                      fill = factor(M_G, levels = c(0,1,2),
+                                    labels = c("Perdeu","Ganhou","Empatou"))))+
+  ggplot2::geom_bar(position = position_dodge(preserve = "single")) +
+  labs(fill="Resultado",
+       x="Cartões vermelhos", y="Frequência")+
+  theme_classic()
+
+library(gridExtra)
+grid.arrange(g1,g2, nrow=2,ncol=1)
+```
+Quando há ocorrência de 2 cartões vermelho, o time mandante tende a perder
+
+
+## Chutes
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_shots , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Chutes")+
+  theme_classic()
+```
+Times que venceram aprentar dar mais chutes
+
+
+## Chutes no gol
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_shots_on_target , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Chutes no gol")+
+  theme_classic()
+```
+Dar mais chutes no gol aparenta influenciar na vitória
+
+
+## Roubadas de bola
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_tackles, 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Roubadas de bola")+
+  theme_classic()
+```
+A quantidade de roubadas de bola não aparenta influenciar no resultado
+
+
+## Toques na bola
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+base2 |>  
+  ggplot(mapping = aes(y = home_touches , 
+                       x = factor(M_G, levels = c(0,1,2),
+                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
+  geom_violin(fill = "red", alpha=0.5) + 
+  geom_boxplot(fill="lightblue", alpha=0.2) +
+  labs(x = "Resultado", 
+       y = "Toques na bola")+
+  theme_classic()
+```
+Times que venceram tendem a possuir maior quantidade de toques na bola durante a partida
