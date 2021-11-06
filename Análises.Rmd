@@ -1,8 +1,7 @@
 
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
-##lendo arquivo
+## Importando a base de dados
 library(readr)
-library(dplyr)
 base <- read_csv("df_full_premierleague.csv")
 base2 <- base
 base2 <- na.omit(base2)
