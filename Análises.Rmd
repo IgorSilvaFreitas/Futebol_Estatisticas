@@ -24,7 +24,7 @@ base2 <- base2[,c(9:25,27:32,115)]
 
 ```
 
-# Análise das estatística do time mandante
+# Análise das estatísticas do time mandante
 
 ## posse de bola
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -139,16 +139,7 @@ Comportamento semelhante entre os resultados, não parece interferir na vitória
 
 ## Cartões vermelho
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
-g1 <- base2 |>  
-  ggplot(mapping = aes(y = home_red_cards , 
-                       x = factor(M_G, levels = c(0,1,2),
-                                  labels = c("Perdeu","Ganhou","Empatou"))))  +
-  geom_violin(fill = "red", alpha=0.5) + 
-  geom_boxplot(fill="lightblue", alpha=0.2) +
-  labs(x = "Resultado", 
-       y = "Cartões vermelho")+
-  theme_classic()
-g2 <- base2 |> 
+base2 |> 
   ggplot2::ggplot(aes(x = as.factor(home_red_cards),
                       fill = factor(M_G, levels = c(0,1,2),
                                     labels = c("Perdeu","Ganhou","Empatou"))))+
@@ -157,8 +148,7 @@ g2 <- base2 |>
        x="Cartões vermelhos", y="Frequência")+
   theme_classic()
 
-library(gridExtra)
-grid.arrange(g1,g2, nrow=2,ncol=1)
+
 ```
 Quando há ocorrência de 2 cartões vermelho, o time mandante tende a perder
 

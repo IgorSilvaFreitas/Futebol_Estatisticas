@@ -1,5 +1,6 @@
 #lendo arquivo
 library(readr)
+setwd("C:/Users/Igor/Documents/GitHub/Futebol_Estatisticas")
 base <- read_csv("df_full_premierleague.csv")
 
 #Exlcuindo dados faltantes
@@ -162,3 +163,269 @@ caret::confusionMatrix(preditor4,testando$M_G)
 #A acurácia diminuiu de 0.65 para 0.61, porém 7 variáveis foram excluídas,
 #esse modelo reduzido parace ser o melhor
 lista4 <- data.frame(testando$M_G, preditor4)
+
+## Calculando as probabilidades de chances
+
+
+   ## estatística do time mandante
+
+# home clearances
+      # empate\vitória
+        exp(-0.08924508)
+           # a cada chutão, a chance do time mandante ganhar diminui em 9%
+           # em relação ao resultado de empate
+        
+      # derrota\vitória
+        exp(-0.05126198)
+          # a cada chutão do time mandante, a chance do time mandante ganhar diminui em 5%
+          # em relação ao resultado de derrota
+        
+        
+#home cornes
+   # empate\vitória
+        exp(-0.07228426)
+          # a cada escanteio do time mandante, a chance do time mandante ganhar diminui em 7% 
+          # em relação ao resultado de empate
+        
+   # derrota\vitória
+        exp(-0.02284053)
+          # a cada escanteio do time mandante, a chance do time mandante ganhar diminui em 2%
+          # em relação ao resultado de derrota  
+        
+#home fouls conceded
+    # empate\vitória
+        exp(0.01724611)
+          # a cada falta cometida pelo time mandante, a chance do time mandante ganhar aumenta em 2% 
+          # em relação ao resultado de empate
+        
+    # derrota\vitória
+        exp(0.01468423)
+          # a cada falta cometida pelo time mandante, a chance do time mandante ganhar aumenta em 1%
+          # em relação ao resultado de derrota
+        
+#home offsides
+    # empate\vitória
+        exp(-0.05125579)
+        # a cada impedimento do time mandante, a chance do time mandante ganhar diminui em 5% 
+        # em relação ao resultado de empate
+        
+   # derrota\vitória
+        exp(-0.07194510)
+          # a cada impedimento do time mandante, a chance do time mandante ganhar diminui em 7%
+          # em relação ao resultado de derrota 
+        
+#home passes
+    # empate\vitória
+        exp(-0.0400317)
+          # a cada passe do time mandante, a chance do time mandante ganhar diminui em 4% 
+          # em relação ao resultado de empate
+        
+   # derrota\vitória
+        exp(-0.0310185)
+          # a cada impedimento do time mandante, a chance do time mandante ganhar diminui em 3%
+          # em relação ao resultado de derrota
+        
+#home possession
+    # empate\vitória
+        exp(0.5429695)
+          # a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta
+          # em 72% em relação ao resultado de empate
+        
+    # derrota\vitória
+        exp(0.2928717)
+          # a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta
+          # em 34% em relação ao resultado de derrota
+        
+#home red card
+    # empate\vitória
+        exp(1.7343094)
+          # a cada cartão vermelho do time mandante, a chance do time mandante ganhar aumenta
+          # em 566% em relação ao resultado de empate
+        
+   # derrota\vitória
+        exp(0.7861991)
+          # a cada cartão vermelho do time mandante, a chance do time mandante ganhar aumenta
+          # em 219% em relação ao resultado de derrota
+        
+#home shots
+   # empate\vitória
+        exp(0.010433972)
+          # a cada chute do time mandante, a chance do time mandante ganhar aumenta
+          # em 1% em relação ao resultado de empate
+        
+   # derrota\vitória
+        exp(0.007143837)
+          # a cada chute do time mandante, a chance do time mandante ganhar aumenta
+          # em 0.7% em relação ao resultado de derrota
+        
+#home shots on target
+    # empate\vitória
+        exp(-0.5400155)
+        # a cada chute no alvo do time mandante, a chance do time mandante ganhar diminui
+        # em 42% em relação ao resultado de empate
+        
+    # derrota\vitória
+        exp(-0.3519944)
+          # a cada chute no alvo do time mandante, a chance do time mandante ganhar diminui
+          # em 30% em relação ao resultado de derrota
+        
+#home tackles
+    # empate\vitória
+        exp(-0.01657592)
+          # a cada roubada de bola do time mandante, a chance do time mandante ganhar diminui
+          # em 2% em relação ao resultado de empate
+        
+    # derrota\vitória
+        exp(-0.01407340)
+          # a cada roubada de bola do time mandante, a chance do time mandante ganhar diminui
+          # em 1% em relação ao resultado de derrota
+        
+#home touches
+        # empate\vitória
+        exp(0.01204926)
+        # a cada toque na bola do time mandante, a chance do time mandante ganhar aumenta
+        # em 1% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.01522994)
+        # a cada toque na bola do time mandante, a chance do time mandante ganhar aumenta
+        # em 2% em relação ao resultado de derrota        
+        
+        
+#home yellow cards
+    # empate\vitória
+        exp(0.05322887)
+          # a cada cartão amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta
+          # em 5% em relação ao resultado de empate
+        
+    # derrota\vitória
+        exp(0.04680001)
+          # a cada cartão amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta
+          # em 5% em relação ao resultado de derrota 
+        
+
+## Estatísticas do time visitante
+        
+
+        # away clearances
+        # empate\vitória
+        exp(0.07027301)
+        # a cada chutão do time visitante, a chance do time mandante ganhar aumenta em 7%
+        # em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.04753328)
+        # a cada chutão do time visitante, a chance do time mandante ganhar aumenta em 5%
+        # em relação ao resultado de derrota
+        
+        
+        #away cornes
+        # empate\vitória
+        exp(0.04707622)
+        # a cada escanteio do time visitante, a chance do time mandante ganhar aumenta em 5% 
+        # em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.02915886)
+        # a cada escanteio do time visitante, a chance do time mandante ganhar aumenta em 3%
+        # em relação ao resultado de derrota  
+        
+        #away fouls conceded
+        # empate\vitória
+        exp(-0.02161963)
+        # a cada falta cometida pelo time visitante, a chance do time mandante ganhar diminui em 2% 
+        # em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.01732826)
+        # a cada falta cometida pelo time visitante, a chance do time mandante ganhar aumenta em 2%
+        # em relação ao resultado de derrota
+        
+        #away offsides
+        # empate\vitória
+        exp(0.008944364)
+        # a cada impedimento do time visitante, a chance do time mandante ganhar aumenta em 1% 
+        # em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.018010286)
+        # a cada impedimento do time visitante, a chance do time mandante ganhar aumenta em 2%
+        # em relação ao resultado de derrota 
+        
+        #away passes
+        # empate\vitória
+        exp(0.02466982)
+        # a cada passe do time visitante, a chance do time mandante ganhar aumenta em 3% 
+        # em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.01419866)
+        # a cada impedimento do time visitante, a chance do time mandante ganhar aumenta em 1%
+        # em relação ao resultado de derrota
+        
+        #away red card
+        # empate\vitória
+        exp(-1.0885458)
+        # a cada cartão vermelho do time visitante, a chance do time mandante ganhar diminui
+        # em 64% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(-0.5813656)
+        # a cada cartão vermelho do time visitante, a chance do time mandante ganhar diminui
+        # em 44% em relação ao resultado de derrota
+        
+        #away shots
+        # empate\vitória
+        exp(-0.01921661)
+        # a cada chute do time visitante, a chance do time mandante ganhar diminui
+        # em 2% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.01403073)
+        # a cada chute do time visitante, a chance do time mandante ganhar aumenta
+        # em 1% em relação ao resultado de derrota
+        
+        #away shots on target
+        # empate\vitória
+        exp(0.5975735)
+        # a cada chute no alvo do time visitante, a chance do time mandante ganhar aumenta
+        # em 182% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.1994254)
+        # a cada chute no alvo do time visitante, a chance do time mandante ganhar aumenta
+        # em 122% em relação ao resultado de derrota
+        
+        #away tackles
+        # empate\vitória
+        exp(-0.02590772)
+        # a cada roubada de bola do time visitante, a chance do time mandante ganhar diminui
+        # em 3% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(-0.03097737)
+        # a cada roubada de bola do time visitante, a chance do time mandante ganhar diminui
+        # em 3% em relação ao resultado de derrota
+        
+        #away touches
+        # empate\vitória
+        exp(0.0057332312)
+        # a cada toque na bola do time visitante, a chance do time mandante ganhar aumenta
+        # em 1% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.0009962201)
+        # a cada toque na bola do time visitante, a chance do time mandante ganhar aumenta
+        # em 0.1% em relação ao resultado de derrota        
+        
+        
+        #away yellow cards
+        # empate\vitória
+        exp(0.01880823)
+        # a cada cartão amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta
+        # em 2% em relação ao resultado de empate
+        
+        # derrota\vitória
+        exp(0.03596049)
+        # a cada cartão amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta
+        # em 4% em relação ao resultado de derrota       
