@@ -64,15 +64,18 @@ per <- base2 |> filter(M_G == 0)
 gan <- base2 |> filter(M_G == 1)
 emp <- base2 |> filter(M_G == 2)
 
+#pacote para teste de normalidade
+library(epiDisplay)
+
 #verificando normalidade das classes
-shapiro.test(per$home_corners) #normal
-shapiro.test(gan$home_corners) #normal
-shapiro.test(emp$home_corners) #normal
+shapiro.qqnorm(per$home_corners) #não é normal
+shapiro.qqnorm(gan$home_corners) #não é normal
+shapiro.qqnorm(emp$home_corners) #não é normal
 
 #teste de igualdade de médias
-t.test(per$home_corners, gan$home_corners) # médias não podem ser consideradas diferentes
-t.test(per$home_corners, emp$home_corners) # médias não podem ser consideradas diferentes
-t.test(emp$home_corners, gan$home_corners) # médias podem ser consideradas diferentes
+wilcox.test(gan$home_corners, per$home_corners, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_corners, per$home_corners, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_corners, gan$home_corners) # medianas podem ser consideradas diferentes
 
 ```
 
@@ -92,14 +95,14 @@ Aparenta haver uma pequena diferença, quando observamos as medianas, entre osre
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
 #verificando normalidade das classes
-shapiro.test(per$home_clearances) #normal
-shapiro.test(gan$home_clearances) #normal
-shapiro.test(emp$home_clearances) #normal
+shapiro.qqnorm(per$home_clearances) #não é normal
+shapiro.qqnorm(gan$home_clearances) #não é normal
+shapiro.qqnorm(emp$home_clearances) #não é normal
 
 #teste de igualdade de médias
-t.test(per$home_clearances, gan$home_clearances) # médias não podem ser consideradas diferentes
-t.test(per$home_clearances, emp$home_clearances) # médias não podem ser consideradas diferentes
-t.test(emp$home_clearances, gan$home_clearances) # médias podem ser consideradas diferentes
+wilcox.test(gan$home_clearances, per$home_clearances, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_clearances, per$home_clearances, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(gan$home_clearances, emp$home_clearances, alternative = 'greater') # medianas podem ser consideradas iguais
 
 ```
 
@@ -120,14 +123,14 @@ Times mandantes que ganharam parecem possui uma quantidade de faltas cometidas u
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
 #verificando normalidade das classes
-shapiro.test(per$home_fouls_conceded) #normal
-shapiro.test(gan$home_fouls_conceded) #normal
-shapiro.test(emp$home_fouls_conceded) #normal
+shapiro.qqnorm(per$home_fouls_conceded) #não é normal
+shapiro.qqnorm(gan$home_fouls_conceded) #não é normal
+shapiro.qqnorm(emp$home_fouls_conceded) #não é normal
 
 #teste de igualdade de médias
-t.test(per$home_fouls_conceded, gan$home_fouls_conceded) # médias podem ser consideradas diferentes
-t.test(per$home_fouls_conceded, emp$home_fouls_conceded) # médias podem ser consideradas diferentes
-t.test(emp$home_fouls_conceded, gan$home_fouls_conceded) # médias não podem ser consideradas diferentes
+wilcox.test(per$home_fouls_conceded, gan$home_fouls_conceded, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(per$home_fouls_conceded, emp$home_fouls_conceded) # medianas podem ser consideradas iguais
+wilcox.test(emp$home_fouls_conceded, gan$home_fouls_conceded, alternative = 'greater') # medianas não podem ser consideradas iguais
 ```
 
 ## Impedimentos 
@@ -147,14 +150,14 @@ Nenhuma diferença pode ser percebida na quantidade de impedimentos
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
 #verificando normalidade das classes
-shapiro.test(per$home_offsides) #normal
-shapiro.test(gan$home_offsides) #normal
-shapiro.test(emp$home_offsides) #normal
+shapiro.qqnorm(per$home_offsides) #não é normal
+shapiro.qqnorm(gan$home_offsides) #não é normal
+shapiro.qqnorm(emp$home_offsides) #não é normal
 
 #teste de igualdade de médias
-t.test(per$home_offsides, gan$home_offsides) # médias não podem ser consideradas diferentes
-t.test(per$home_offsides, emp$home_offsides) # médias não podem ser consideradas diferentes
-t.test(emp$home_offsides, gan$home_offsides) # médias podem ser consideradas diferentes
+wilcox.test(per$home_offsides, gan$home_offsides) # medianas não podem ser consideradas iguais
+wilcox.test(per$home_offsides, emp$home_offsides) # medianas podem ser consideradas iguais
+wilcox.test(emp$home_offsides, gan$home_offsides) # medianas não podem ser consideradas iguais
 ```
 
 ## Passes
@@ -170,7 +173,18 @@ base2 |>
   theme_classic()
 ```
 Times mandantes que ganharam parecem possuir mais passes realizados durante a partida
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_passes) #não é normal
+shapiro.qqnorm(gan$home_passes) #não é normal
+shapiro.qqnorm(emp$home_passes) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_passes, per$home_passes, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(per$home_passes, emp$home_passes) # medianas podem ser consideradas iguais
+wilcox.test(gan$home_passes, emp$home_passes, alternative = 'greater') # medianas não podem ser consideradas iguais
+```
 
 ## Cartões amarelos
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -187,7 +201,18 @@ base2 |>
 
 ```
 Comportamento semelhante entre os resultados, não parece interferir na vitória
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_yellow_cards) #não é normal
+shapiro.qqnorm(gan$home_yellow_cards) #não é normal
+shapiro.qqnorm(emp$home_yellow_cards) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(per$home_yellow_cards, gan$home_yellow_cards) # medianas não podem ser consideradas iguais
+wilcox.test(per$home_yellow_cards, emp$home_yellow_cards) # medianas podem ser consideradas iguais
+wilcox.test(emp$home_yellow_cards, gan$home_yellow_cards) # medianas não podem ser consideradas iguais
+```
 
 ## Cartões vermelho
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
