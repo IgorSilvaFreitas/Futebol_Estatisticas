@@ -43,6 +43,7 @@ base2 |>
 Posse de bola do mandante vencedor aparenta ser um pouco maior que os demais resultados
 
 
+
 ## Escanteios
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 base2 |>  
@@ -57,6 +58,23 @@ base2 |>
 
 ```
 Quando o mandante perde os escanteios aparentam ocorrer em menor número
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+# bases para os testes de hipoteses
+per <- base2 |> filter(M_G == 0)
+gan <- base2 |> filter(M_G == 1)
+emp <- base2 |> filter(M_G == 2)
+
+#verificando normalidade das classes
+shapiro.test(per$home_corners) #normal
+shapiro.test(gan$home_corners) #normal
+shapiro.test(emp$home_corners) #normal
+
+#teste de igualdade de médias
+t.test(per$home_corners, gan$home_corners) # médias não podem ser consideradas diferentes
+t.test(per$home_corners, emp$home_corners) # médias não podem ser consideradas diferentes
+t.test(emp$home_corners, gan$home_corners) # médias podem ser consideradas diferentes
+
+```
 
 ## Chutões
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -71,7 +89,19 @@ base2 |>
   theme_classic()
 ```
 Aparenta haver uma pequena diferença, quando observamos as medianas, entre osresultados, onde os mandantes que perderam tendem a dar menos chutões do que os que venceram ou empataram
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
+#verificando normalidade das classes
+shapiro.test(per$home_clearances) #normal
+shapiro.test(gan$home_clearances) #normal
+shapiro.test(emp$home_clearances) #normal
+
+#teste de igualdade de médias
+t.test(per$home_clearances, gan$home_clearances) # médias não podem ser consideradas diferentes
+t.test(per$home_clearances, emp$home_clearances) # médias não podem ser consideradas diferentes
+t.test(emp$home_clearances, gan$home_clearances) # médias podem ser consideradas diferentes
+
+```
 
 ## Faltas cometidas
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -87,7 +117,18 @@ base2 |>
 
 ```
 Times mandantes que ganharam parecem possui uma quantidade de faltas cometidas um pouco menos que os demais resultados
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
+#verificando normalidade das classes
+shapiro.test(per$home_fouls_conceded) #normal
+shapiro.test(gan$home_fouls_conceded) #normal
+shapiro.test(emp$home_fouls_conceded) #normal
+
+#teste de igualdade de médias
+t.test(per$home_fouls_conceded, gan$home_fouls_conceded) # médias podem ser consideradas diferentes
+t.test(per$home_fouls_conceded, emp$home_fouls_conceded) # médias podem ser consideradas diferentes
+t.test(emp$home_fouls_conceded, gan$home_fouls_conceded) # médias não podem ser consideradas diferentes
+```
 
 ## Impedimentos 
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -103,7 +144,18 @@ base2 |>
 
 ```
 Nenhuma diferença pode ser percebida na quantidade de impedimentos
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
 
+#verificando normalidade das classes
+shapiro.test(per$home_offsides) #normal
+shapiro.test(gan$home_offsides) #normal
+shapiro.test(emp$home_offsides) #normal
+
+#teste de igualdade de médias
+t.test(per$home_offsides, gan$home_offsides) # médias não podem ser consideradas diferentes
+t.test(per$home_offsides, emp$home_offsides) # médias não podem ser consideradas diferentes
+t.test(emp$home_offsides, gan$home_offsides) # médias podem ser consideradas diferentes
+```
 
 ## Passes
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
