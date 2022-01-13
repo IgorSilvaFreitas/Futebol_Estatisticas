@@ -71,22 +71,22 @@ Comportamento semelhante entre os resultados, não parece interferir na vitória
 
 # Probabilidades
 
-* ## Clearances
+* ## Chutões
 * A cada chutão do time mandante, a chance do time mandante ganhar diminui em 9% em relação ao resultado de empate
 * A cada chutão do time mandante, a chance do time mandante ganhar diminui em 5% em relação ao resultado de derrota
 * A cada chutão do time visitante, a chance do time mandante ganhar aumenta em 7% em relação ao resultado de empate
 * A cada chutão do time visitante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de derrota
-* ## Coners
+* ## Escanteio
 * A cada escanteio do time mandante, a chance do time mandante ganhar diminui em 7% em relação ao resultado de empate
 * A cada escanteio do time mandante, a chance do time mandante ganhar diminui em 2% em relação ao resultado de derrota
 * A cada escanteio do time visitante, a chance do time mandante ganhar aumenta em 5%  em relação ao resultado de empate
 * A cada escanteio do time visitante, a chance do time mandante ganhar aumenta em 3% em relação ao resultado de derrota
-* ## Fouls conceded
+* ## Faltas Cometidas
 * A cada falta cometida pelo time mandante, a chance do time mandante ganhar aumenta em 2%  em relação ao resultado de empate
 * A cada falta cometida pelo time mandante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de derrota
 * A cada falta cometida pelo time visitante, a chance do time mandante ganhar diminui em 2%  em relação ao resultado de empate
 * A cada falta cometida pelo time visitante, a chance do time mandante ganhar aumenta em 2% em relação ao resultado de derrota
-* ## Offsides
+* ## Impedimentos
 * A cada impedimento do time mandante, a chance do time mandante ganhar diminui em 5%  em relação ao resultado de empate
 * A cada impedimento do time mandante, a chance do time mandante ganhar diminui em 7% em relação ao resultado de derrota
 * A cada impedimento do time visitante, a chance do time mandante ganhar aumenta em 1%  em relação ao resultado de empate
@@ -96,3 +96,45 @@ Comportamento semelhante entre os resultados, não parece interferir na vitória
 * A cada impedimento do time mandante, a chance do time mandante ganhar diminui em 3% em relação ao resultado de derrota
 * A cada passe do time visitante, a chance do time mandante ganhar aumenta em 3%  em relação ao resultado de empate
 * A cada impedimento do time visitante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de derrota
+* ## Cartões Vermelho
+* a cada cartão vermelho do time mandante, a chance do time mandante ganhar aumenta em 566% em relação ao resultado de empate
+* a cada cartão vermelho do time mandante, a chance do time mandante ganhar aumenta em 219% em relação ao resultado de derrota
+* a cada cartão vermelho do time visitante, a chance do time mandante ganhar diminui em 64% em relação ao resultado de empate
+* a cada cartão vermelho do time visitante, a chance do time mandante ganhar diminui em 44% em relação ao resultado de derrota
+* ## Chutes
+* a cada chute do time mandante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de empate
+* a cada chute no alvo do time mandante, a chance do time mandante ganhar diminui em 42% em relação ao resultado de empate
+* a cada chute do time visitante, a chance do time mandante ganhar diminui em 2% em relação ao resultado de empate
+* a cada chute do time visitante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de derrota
+* ## Chutes no Alvo
+* a cada chute no alvo do time mandante, a chance do time mandante ganhar diminui em 42% em relação ao resultado de empate
+* a cada chute no alvo do time mandante, a chance do time mandante ganhar diminui em 30% em relação ao resultado de derrota
+* a cada chute no alvo do time visitante, a chance do time mandante ganhar aumenta em 182% em relação ao resultado de empate
+* a cada chute no alvo do time visitante, a chance do time mandante ganhar aumenta em 122% em relação ao resultado de derrota
+* ## Roubada de Bola
+* a cada roubada de bola do time mandante, a chance do time mandante ganhar diminui em 2% em relação ao resultado de empate
+* a cada roubada de bola do time mandante, a chance do time mandante ganhar diminui em 1% em relação ao resultado de derrota
+* a cada roubada de bola do time visitante, a chance do time mandante ganhar diminui em 3% em relação ao resultado de empate
+* a cada roubada de bola do time visitante, a chance do time mandante ganhar diminui em 3% em relação ao resultado de derrota
+* ## Toques
+* a cada toque na bola do time mandante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de empate
+* a cada toque na bola do time mandante, a chance do time mandante ganhar aumenta em 2% em relação ao resultado de derrota
+* a cada toque na bola do time visitante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de empate
+* a cada toque na bola do time visitante, a chance do time mandante ganhar aumenta em 0.1% em relação ao resultado de derrota
+* ## Cartões Amarelo
+* a cada cartÃ£o amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de empate
+* a cada cartÃ£o amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de derrota
+* a cada cartÃ£o amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta em 2% em relação ao resultado de empate
+* a cada cartÃ£o amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta em 4% em relação ao resultado de derrota
+* ## Posse de Bola
+* a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta em 72% em relação ao resultado de empate
+* a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta em 34% em relação ao resultado de derrota
+
+#Conclusão
+
+Em geral, o que se percebe são comportamentos parecidos para as influências das estatísticas do mandante e do visitante. Isto é, se o aumento da estatística para o time mandante, aumenta a chance dela ganhar, então, o aumento da mesma estatística para o visitante diminui a chance do mandante ganhar.
+
+A conclusão sobre os cartões vermelhos chama a atenção, não apenas pelos valortes altos, porém pelo fato de discordar da análise gráfica, testes de hipótese e do pensamento comum. Isto pode ser pelo fato de terem poucos casos de 2 cartões ou mais em uma partida, o que fez com que o modelo não medisse bem essa estatística.
+
+Por fim foi possível identificar as estatística que mais influenciam no resultado de uma partida, sendo estas, o número de chutes no gol e a posse de bola. Aqui há de se tomar cuidado, pois apesar dessas estatísticas aumentarem bastante a probabilidade de ganhar, há outras estatística que aumentam pouco, porém aumenta este pouco a cada aumento da estatística. Por exemplo, a cada toque a chance de ganhar aumenta, mas em uma partida é comum termos mais de 400 toques, o que leva este valor a 400%.
+
