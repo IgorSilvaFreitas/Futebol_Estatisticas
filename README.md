@@ -130,7 +130,7 @@ Comportamento semelhante entre os resultados, não parece interferir na vitória
 * a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta em 72% em relação ao resultado de empate
 * a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta em 34% em relação ao resultado de derrota
 
-#Conclusão
+# Conclusão
 
 Em geral, o que se percebe são comportamentos parecidos para as influências das estatísticas do mandante e do visitante. Isto é, se o aumento da estatística para o time mandante, aumenta a chance dela ganhar, então, o aumento da mesma estatística para o visitante diminui a chance do mandante ganhar.
 
