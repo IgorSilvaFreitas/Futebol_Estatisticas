@@ -134,7 +134,7 @@ Comportamento semelhante entre os resultados, não parece interferir na vitória
 
 Em geral, o que se percebe são comportamentos parecidos para as influências das estatísticas do mandante e do visitante. Isto é, se o aumento da estatística para o time mandante, aumenta a chance dela ganhar, então, o aumento da mesma estatística para o visitante diminui a chance do mandante ganhar.
 
-A conclusão sobre os cartões vermelhos chama a atenção, não apenas pelos valortes altos, porém pelo fato de discordar da análise gráfica, testes de hipótese e do pensamento comum. Isto pode ser pelo fato de terem poucos casos de 2 cartões ou mais em uma partida, o que fez com que o modelo não medisse bem essa estatística.
+A conclusão sobre os cartões vermelhos chama a atenção, não apenas pelos valortes altos, porém pelo fato de discordar da análise gráfica, testes de hipótese e do pensamento comum. Isto pode ser pelo fato de terem poucos casos de cartões vermelhos em uma partida olhando para todos os dados disponíveis, o que fez com que o modelo não medisse bem essa estatística.
 
 Por fim foi possível identificar as estatística que mais influenciam no resultado de uma partida, sendo estas, o número de chutes no gol e a posse de bola. Aqui há de se tomar cuidado, pois apesar dessas estatísticas aumentarem bastante a probabilidade de ganhar, há outras estatística que aumentam pouco, porém aumenta este pouco a cada aumento da estatística. Por exemplo, a cada toque a chance de ganhar aumenta, mas em uma partida é comum termos mais de 400 toques, o que leva este valor a 400%.
 
