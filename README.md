@@ -122,10 +122,10 @@ Comportamento semelhante entre os resultados, não parece interferir na vitória
 * a cada toque na bola do time visitante, a chance do time mandante ganhar aumenta em 1% em relação ao resultado de empate
 * a cada toque na bola do time visitante, a chance do time mandante ganhar aumenta em 0.1% em relação ao resultado de derrota
 * ## Cartões Amarelo
-* a cada cartÃ£o amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de empate
-* a cada cartÃ£o amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de derrota
-* a cada cartÃ£o amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta em 2% em relação ao resultado de empate
-* a cada cartÃ£o amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta em 4% em relação ao resultado de derrota
+* a cada cartão amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de empate
+* a cada cartão amarelo recebido pelo time mandante, a chance do time mandante ganhar aumenta em 5% em relação ao resultado de derrota
+* a cada cartão amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta em 2% em relação ao resultado de empate
+* a cada cartão amarelo recebido pelo time visitante, a chance do time mandante ganhar aumenta em 4% em relação ao resultado de derrota
 * ## Posse de Bola
 * a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta em 72% em relação ao resultado de empate
 * a cada 1% a mais de posse do time mandante, a chance do time mandante ganhar aumenta em 34% em relação ao resultado de derrota
