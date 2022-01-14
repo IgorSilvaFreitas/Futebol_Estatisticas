@@ -27,50 +27,62 @@ A normalidade foi rejeitada em todas as estatística, logo testes não paramétr
 Mediana é o termo central, pensa na sequencia de 1 à 5, o número 3 está exatamente no meio, logo 3 é a mediana.
 
 Aparenta haver uma pequena diferença, quando observamos as medianas, entre os resultados, onde os mandantes que perderam tendem a dar menos chutões do que os que venceram ou empataram. Os testes de hipótese confirmam as suposições.
+
 ![chutões](Imagens/chutoes.PNG)
 
 
 Quando o mandante perde, os escanteios aparentam ocorrer em menor número. Essa suposição foi confirmada pelo teste de hipótese.
+
 ![corner](Imagens/corners.PNG)
 
 
 Times mandantes que ganharam, parecem possui uma quantidade de faltas cometidas um pouco menor que os demais resultados. A mediana é de fato menor quando o time ganhou.
+
 ![faltas](Imagens/faltas.PNG)
 
 
 Nenhuma diferença pode ser percebida na quantidade de impedimentos. Porém, foi verificado que quando o time ganha, a mediana do impedimento é menor.
+
 ![offside](Imagens/offside.PNG)
 
 
 Times mandantes que ganharam, parecem possuir mais passes realizados durante a partida. A suposição foi confirmada.
+
 ![passes](Imagens/passes.PNG)
 
 
 Posse de bola do mandante vencedor aparenta ser um pouco maior que os demais resultados. De fato isto ocorre, como comprovado pelo teste de hipótese.
+
 ![posse](Imagens/posse.PNG)
 
 
 Quando há ocorrência de 2 cartões vermelhos, o time mandante tende a perder. 
+
 ![vermelho](Imagens/vermelho.PNG)
 
 
 Times que venceram aprentar dar mais chutes. Isto de fato ocorre. 
+
 ![chute](Imagens/chutes.PNG)
 
 
 Dar mais chutes no gol aparenta influenciar positivamente na vitória. A suposição foi comprovada.
+
 ![chute_alvo](Imagens/chute_alvo.PNG)
 
 
 A quantidade de roubadas de bola não aparenta influenciar no resultado. Essa suposição está correta.
+
 ![roubadas](Imagens/rouba.PNG)
 
 
 Times que venceram tendem a possuir maior quantidade de toques na bola durante a partida. De fato isso ocorre.
+
 ![toque](Imagens/toque.PNG)
 
 
 Comportamento semelhante entre os resultados, não parece interferir na vitória. Porém, a conclusão final é que a mediana de cartões amarelos é menor quando o time vence.
+
 ![amarelo](Imagens/amarelo.PNG)
 
 # Probabilidades
