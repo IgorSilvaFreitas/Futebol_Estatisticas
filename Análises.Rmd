@@ -42,7 +42,26 @@ base2 |>
 ```
 Posse de bola do mandante vencedor aparenta ser um pouco maior que os demais resultados
 
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+# bases para os testes de hipoteses
+per <- base2 |> filter(M_G == 0)
+gan <- base2 |> filter(M_G == 1)
+emp <- base2 |> filter(M_G == 2)
 
+#pacote para teste de normalidade
+library(epiDisplay)
+
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_possession) #não é normal
+shapiro.qqnorm(gan$home_possession) #não é normal
+shapiro.qqnorm(emp$home_possession) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_possession, per$home_possession, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_possession, per$home_possession, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_possession, gan$home_possession, alternativa = 'greater') # medianas não podem ser consideradas diferentes
+
+```
 
 ## Escanteios
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -75,7 +94,7 @@ shapiro.qqnorm(emp$home_corners) #não é normal
 #teste de igualdade de médias
 wilcox.test(gan$home_corners, per$home_corners, alternative = 'greater') # medianas não podem ser consideradas iguais
 wilcox.test(emp$home_corners, per$home_corners, alternative = 'greater') # medianas não podem ser consideradas iguais
-wilcox.test(emp$home_corners, gan$home_corners) # medianas podem ser consideradas diferentes
+wilcox.test(emp$home_corners, gan$home_corners) # medianas podem ser consideradas iguais
 
 ```
 
@@ -155,9 +174,9 @@ shapiro.qqnorm(gan$home_offsides) #não é normal
 shapiro.qqnorm(emp$home_offsides) #não é normal
 
 #teste de igualdade de médias
-wilcox.test(per$home_offsides, gan$home_offsides) # medianas não podem ser consideradas iguais
+wilcox.test(per$home_offsides, gan$home_offsides, alternative = 'greater') # medianas não podem ser consideradas iguais
 wilcox.test(per$home_offsides, emp$home_offsides) # medianas podem ser consideradas iguais
-wilcox.test(emp$home_offsides, gan$home_offsides) # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_offsides, gan$home_offsides, alternative = 'greater') # medianas não podem ser consideradas iguais
 ```
 
 ## Passes
@@ -209,9 +228,9 @@ shapiro.qqnorm(gan$home_yellow_cards) #não é normal
 shapiro.qqnorm(emp$home_yellow_cards) #não é normal
 
 #teste de igualdade de médias
-wilcox.test(per$home_yellow_cards, gan$home_yellow_cards) # medianas não podem ser consideradas iguais
+wilcox.test(per$home_yellow_cards, gan$home_yellow_cards, alternative = 'greater') # medianas não podem ser consideradas iguais
 wilcox.test(per$home_yellow_cards, emp$home_yellow_cards) # medianas podem ser consideradas iguais
-wilcox.test(emp$home_yellow_cards, gan$home_yellow_cards) # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_yellow_cards, gan$home_yellow_cards, alternative = 'greater') # medianas não podem ser consideradas iguais
 ```
 
 ## Cartões vermelho
@@ -229,6 +248,19 @@ base2 |>
 ```
 Quando há ocorrência de 2 cartões vermelho, o time mandante tende a perder
 
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_red_cards) #não é normal
+shapiro.qqnorm(gan$home_red_cards) #não é normal
+shapiro.qqnorm(emp$home_red_cards) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_red_cards, per$home_red_cards, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(per$home_red_cards, emp$home_red_cards, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(gan$home_red_cards, emp$home_red_cards, alternative = 'greater') # medianas podem ser consideradas iguais
+
+```
 
 ## Chutes
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -244,6 +276,19 @@ base2 |>
 ```
 Times que venceram aprentar dar mais chutes
 
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_shots) #não é normal
+shapiro.qqnorm(gan$home_shots) #não é normal
+shapiro.qqnorm(emp$home_shots) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_shots, per$home_shots, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_shots, per$home_shots, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(gan$home_shots, emp$home_shots, alternative = 'greater') # medianas não podem ser consideradas iguais
+
+```
 
 ## Chutes no gol
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -259,6 +304,19 @@ base2 |>
 ```
 Dar mais chutes no gol aparenta influenciar na vitória
 
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_shots_on_target) #não é normal
+shapiro.qqnorm(gan$home_shots_on_target) #não é normal
+shapiro.qqnorm(emp$home_shots_on_target) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_shots_on_target, per$home_shots_on_target, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_shots_on_target, per$home_shots_on_target, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(gan$home_shots_on_target, emp$home_shots_on_target, alternative = 'greater') # medianas não podem ser consideradas iguais
+
+```
 
 ## Roubadas de bola
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -274,6 +332,19 @@ base2 |>
 ```
 A quantidade de roubadas de bola não aparenta influenciar no resultado
 
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_tackles) #não é normal
+shapiro.qqnorm(gan$home_tackles) #não é normal
+shapiro.qqnorm(emp$home_tackles) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_tackles, per$home_tackles, alternative = 'greater') # medianas podem ser consideradas iguais
+wilcox.test(emp$home_tackles, per$home_tackles, alternative = 'greater') # medianas podem ser consideradas iguais
+wilcox.test(gan$home_tackles, emp$home_tackles) # medianas podem ser consideradas iguais
+
+```
 
 ## Toques na bola
 ```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
@@ -288,3 +359,17 @@ base2 |>
   theme_classic()
 ```
 Times que venceram tendem a possuir maior quantidade de toques na bola durante a partida
+
+```{r fig.align='center', echo=FALSE, warning=FALSE, message=FALSE}
+
+#verificando normalidade das classes
+shapiro.qqnorm(per$home_touches) #não é normal
+shapiro.qqnorm(gan$home_touches) #não é normal
+shapiro.qqnorm(emp$home_touches) #não é normal
+
+#teste de igualdade de médias
+wilcox.test(gan$home_touches, per$home_touches, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(emp$home_touches, per$home_touches, alternative = 'greater') # medianas não podem ser consideradas iguais
+wilcox.test(gan$home_touches, emp$home_touches, alternative = 'greater') # medianas não podem ser consideradas iguais
+
+```
